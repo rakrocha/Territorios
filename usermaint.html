@@ -21,10 +21,32 @@
     .form-section input, .form-section select { margin: 5px; padding: 6px; }
     button { margin: 5px; padding: 6px 12px; cursor: pointer; }
     button:hover { background-color: #ddd; }
+	/* Botão SAIR */
+    .btn-sair {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	.btn-sair:hover {
+      background-color: #cc0000;
+    }
   </style>
 </head>
 <body>
   <h1>Manutenção de Usuários</h1>
+  
+  <!-- Botão SAIR -->
+    <button class="btn-sair" onclick="sair()">SAIR</button>
 
   <!-- Tabela de usuários -->
   <table>
@@ -62,9 +84,10 @@
 
   <script>
   
-    // Verifica se está logado
-	if (sessionStorage.getItem("logado") !== "true") {
-		window.location.href = "index.html"; // força voltar para login
+    // Função SAIR
+    function sair() {
+      sessionStorage.removeItem("logado"); // limpa valor
+      window.location.href = "index.html"; // redireciona  
 	}
   
     // Inicializa a tabela ao carregar a página
